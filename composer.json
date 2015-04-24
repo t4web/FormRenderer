@@ -1,0 +1,35 @@
+{
+    "name": "t4web/form-renderer",
+    "description": "ZF2 Module for render forms",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "forms",
+        "form"
+    ],
+    "homepage": "https://github.com/t4web/FormRenderer",
+    "authors": [
+        {
+            "name": "Max Gulturyan",
+            "email": "gulturyan@gmail.com",
+            "homepage": "http://about.me/maxgu"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zendframework/zendframework": "2.4.*"
+    },
+    "require-dev" : {
+        "codeception/codeception": "2.*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "T4webFormRenderer": "src/",
+            "T4webFormRendererTest\\UnitTest": "tests/UnitTest/",
+            "T4webFormRendererTest\\FunctionalTest": "tests/FunctionalTest/",
+            "T4webFormRendererTest\\AcceptanceTest": "tests/AcceptanceTest/"
+        }
+    }
+}
