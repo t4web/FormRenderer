@@ -30,6 +30,9 @@
             "T4webFormRendererTest\\UnitTest": "tests/UnitTest/",
             "T4webFormRendererTest\\FunctionalTest": "tests/FunctionalTest/",
             "T4webFormRendererTest\\AcceptanceTest": "tests/AcceptanceTest/"
-        }
+        },
+        "classmap": [
+          "./Module.php"
+        ]
     }
 }
