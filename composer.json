@@ -17,19 +17,11 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "zendframework/zendframework": "~2.5.0"
+        "php": ">=5.5.0"
     },
-    "require-dev" : {
-        "codeception/codeception": "2.*"
-    },
-
     "autoload": {
         "psr-0": {
-            "T4webFormRenderer": "src/",
-            "T4webFormRendererTest\\UnitTest": "tests/UnitTest/",
-            "T4webFormRendererTest\\FunctionalTest": "tests/FunctionalTest/",
-            "T4webFormRendererTest\\AcceptanceTest": "tests/AcceptanceTest/"
+            "T4webFormRenderer": "src/"
         },
         "classmap": [
           "./Module.php"
