@@ -4,10 +4,10 @@ ZF2 Module for render form
 Just describe entity
 ```php
 $formConfig = [
-    'elements' => array(
-        array(
+    'elements' => [
+        [
             'name' => 'name',
-            'spec' => array(
+            'spec' => [
                 'type' => 'T4WebFormRenderer\Form\Element\Text',
                 'label' => 'Name',
                 'attributes' => [
@@ -15,28 +15,28 @@ $formConfig = [
                     'placeholder' => 'Enter name',
                     'data-bar' => 'baz'
                 ]
-            ),
-        ),
-        array(
+            ],
+        ],
+        [
             'name' => 'link',
-            'spec' => array(
+            'spec' => [
                 'type' => 'T4WebFormRenderer\Form\Element\Text',
-                'options' => array(
+                'options' => [
                     'label' => 'Link',
                     'placeholder' => 'Enter link',
-                ),
-            ),
-        ),
-        array(
+                ],
+            ],
+        ],
+        [
             'name' => 'send',
-            'spec' => array(
+            'spec' => [
                 'type'  => 'T4WebFormRenderer\Form\Element\Submit',
-                'attributes' => array(
+                'attributes' => [
                     'value' => 'Submit',
                     'id' => 'submit-btn',
-                ),
-            ),
-        ),
+                ],
+            ],
+        ],
     ),
 ];
 ```
@@ -47,7 +47,7 @@ will be render as
     <div class="box-body">
         <div class="form-group">
             <label class="control-label">Name</label>
-            <input type="text" name="name" placeholder="Enter name" class="form-control" data-bar="baz" value="">
+            <input type="text" name="name" placeholder="Enter name" class="form-control" data-bar="baz" id="name" value="">
         </div>
 
         <div class="form-group">
