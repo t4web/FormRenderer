@@ -1,13 +1,9 @@
 {
     "name": "t4web/form-renderer",
-    "description": "ZF2 Module for render forms",
+    "description": "Library for render forms",
     "type": "library",
     "license": "BSD-3-Clause",
-    "keywords": [
-        "zf2",
-        "forms",
-        "form"
-    ],
+    "keywords": [ "zf2", "forms", "form" ],
     "homepage": "https://github.com/t4web/FormRenderer",
     "authors": [
         {
@@ -19,12 +15,13 @@
     "require": {
         "php": ">=5.5.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "~4.6"
+    },
     "autoload": {
-        "psr-0": {
-            "T4webFormRenderer": "src/"
-        },
-        "classmap": [
-          "./Module.php"
-        ]
+        "psr-4": {
+            "T4webFormRenderer\\": "src/T4webFormRenderer/",
+            "T4webFormRendererTest\\": "tests/T4webFormRendererTest/"
+        }
     }
 }

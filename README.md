@@ -1,9 +1,10 @@
 # FormRenderer
-ZF2 Module for render form
+Library for render forms
 
 Just describe entity
 ```php
 $formConfig = [
+    'template' => 'application/form/create-news', 
     'elements' => [
         [
             'name' => 'name',
@@ -27,6 +28,8 @@ $formConfig = [
                 ],
             ],
         ],
+    ],
+    'buttons' => [
         [
             'name' => 'send',
             'spec' => [
@@ -37,8 +40,35 @@ $formConfig = [
                 ],
             ],
         ],
+        [
+            'name' => 'send',
+            'spec' => [
+                'type'  => 'T4WebFormRenderer\Form\Element\Link',
+                'label' => 'Cancel',
+                'attributes' => [
+                    'class' => 'btn btn-default',
+                    'href' => '/admin/list',
+                ],
+            ],
+        ],
     ],
 ];
+
+$form = new Form($formConfig);
+$form->render();
+```
+
+And create template application/form/create-news.phtml
+```php
+<form method="post">
+    <div class="box-body">
+        <?=$this->elements ?>
+    </div>
+
+    <div class="box-footer">
+        <?=$this->buttons ?>
+    </div>
+</form>
 ```
 
 will be render as
@@ -58,7 +88,7 @@ will be render as
 
     <div class="box-footer">
         <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
-        <a class="btn btn-default" href="/admin/news-sm">Cancel</a>
+        <a class="btn btn-default" href="/admin/list">Cancel</a>
     </div>
 </form>
 ```
