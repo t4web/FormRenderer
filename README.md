@@ -4,71 +4,31 @@ Library for render forms
 Just describe entity
 ```php
 $formConfig = [
-    'template' => 'application/form/create-news', 
-    'elements' => [
-        [
-            'name' => 'name',
-            'spec' => [
-                'type' => 'T4WebFormRenderer\Form\Element\Text',
-                'label' => 'Name',
-                'attributes' => [
-                    'id' => 'name',
-                    'placeholder' => 'Enter name',
-                    'data-bar' => 'baz'
-                ]
-            ],
+    'type' => 'Form',
+    'template' => 'application/form/create-news',
+    'children' => [
+        'name' => [
+            'type' => 'Input',
+            'vars' => [
+                'label' => 'Enter name'
+            ]
         ],
-        [
-            'name' => 'link',
-            'spec' => [
-                'type' => 'T4WebFormRenderer\Form\Element\Text',
-                'options' => [
-                    'label' => 'Link',
-                    'placeholder' => 'Enter link',
-                ],
-            ],
-        ],
+        'link' => [
+            'type' => 'Input',
+            'vars' => [
+                'label' => 'Enter link'
+            ]
+        ]
     ],
-    'buttons' => [
-        [
-            'name' => 'send',
-            'spec' => [
-                'type'  => 'T4WebFormRenderer\Form\Element\Submit',
-                'attributes' => [
-                    'value' => 'Submit',
-                    'id' => 'submit-btn',
-                ],
-            ],
-        ],
-        [
-            'name' => 'send',
-            'spec' => [
-                'type'  => 'T4WebFormRenderer\Form\Element\Link',
-                'label' => 'Cancel',
-                'attributes' => [
-                    'class' => 'btn btn-default',
-                    'href' => '/admin/list',
-                ],
-            ],
-        ],
+    'vars' => [
+        'action' => '/admin/news/create',
+        'cancelLink' => '/admin/list'
     ],
 ];
 
-$form = new Form($formConfig);
-$form->render();
-```
-
-And create template application/form/create-news.phtml
-```php
-<form method="post">
-    <div class="box-body">
-        <?=$this->elements ?>
-    </div>
-
-    <div class="box-footer">
-        <?=$this->buttons ?>
-    </div>
-</form>
+$factory = new Factory($formConfig);
+$form = $factory->create();
+$renderer->render($form);
 ```
 
 will be render as

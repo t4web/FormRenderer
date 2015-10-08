@@ -1,0 +1,12 @@
+<form method="post" action="<?=$this->action ?>">
+    <div class="box-body">
+        <?php foreach($this->children as $element): ?>
+            <?=$this->render($element)?>
+        <?php endforeach;?>
+    </div>
+
+    <div class="box-footer">
+        <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
+        <a class="btn btn-default" href="<?=$this->cancelLink ?>">Cancel</a>
+    </div>
+</form>
