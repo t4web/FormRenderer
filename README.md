@@ -4,23 +4,24 @@ Library for render forms
 Just describe entity
 ```php
 $formConfig = [
-    'type' => 'Form',
-    'template' => 'application/form/create-news',
+    'type' => 'T4webFormRenderer\Element\Form',
     'children' => [
         'name' => [
-            'type' => 'Input',
-            'vars' => [
-                'label' => 'Enter name'
+            'type' => 'T4webFormRenderer\Element\Text',
+            'variables' => [
+                'label' => 'Name',
+                'placeholder' => 'Enter name'
             ]
         ],
         'link' => [
-            'type' => 'Input',
-            'vars' => [
-                'label' => 'Enter link'
+            'type' => 'T4webFormRenderer\Element\Text',
+            'variables' => [
+                'label' => 'Link',
+                'placeholder' => 'Enter link'
             ]
         ]
     ],
-    'vars' => [
+    'variables' => [
         'action' => '/admin/news/create',
         'cancelLink' => '/admin/list'
     ],
@@ -37,7 +38,7 @@ will be render as
     <div class="box-body">
         <div class="form-group">
             <label class="control-label">Name</label>
-            <input type="text" name="name" placeholder="Enter name" class="form-control" data-bar="baz" id="name" value="">
+            <input type="text" name="name" placeholder="Enter name" class="form-control" value="">
         </div>
 
         <div class="form-group">
