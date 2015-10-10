@@ -13,7 +13,7 @@ class Factory {
     public function create(array $config)
     {
         if (!isset($config['type'])) {
-            throw new Exception\InvalidArgumentException('Config expects key "type", none given');
+            $config['type'] = 'T4webFormRenderer\Element';
         }
 
         $elementClass = $config['type'];
@@ -29,8 +29,12 @@ class Factory {
             $config['variables'] = [];
         }
 
+        if (isset($config['template'])) {
+            $template = $config['template'];
+        }
+
         /** @var Element $element */
-        $element = new $elementClass($config['variables']);
+        $element = new $elementClass($config['variables'], [], $template);
 
         $children = [];
         if (isset($config['children'])) {
@@ -38,7 +42,7 @@ class Factory {
                 /** @var Element $child */
                 $child = $this->create($childConfig);
                 $child->setVariable('name', $name);
-                $children[] = $child;
+                $children[$name] = $child;
             }
         }
 
