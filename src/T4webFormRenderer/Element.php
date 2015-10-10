@@ -11,6 +11,13 @@ class Element extends ViewModel
     protected $messages = [];
 
     /**
+     * Data being validated
+     *
+     * @var mixed
+     */
+    protected $data;
+
+    /**
      * @param array $variables
      * @param array $options
      * @param string $template
@@ -79,5 +86,47 @@ class Element extends ViewModel
     public function hasMessages()
     {
         return !empty($this->messages);
+    }
+
+    /**
+     * Set data to validate and/or populate elements
+     *
+     * Typically, also passes data on to the composed input filter.
+     *
+     * @param  mixed $data
+     * @return Element
+     */
+    public function setData($data)
+    {
+        if (!is_array($data)) {
+            $this->data = $data;
+            return $this;
+        }
+
+        $children = $this->getVariable('children');
+
+        if (empty($children)) {
+            return $this;
+        }
+
+        foreach ($data as $key => $value) {
+            if (!isset($children[$key])) {
+                continue;
+            }
+
+            $children[$key]->setData($value);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the validated data
+     *
+     * @return mixed
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 }

@@ -3,7 +3,7 @@
 
 <div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
     <label class="control-label"><?=$this->label ?></label>
-    <input type="text" name="<?=$this->name ?>" placeholder="<?=$this->placeholder?>" class="form-control" value="">
+    <input type="text" name="<?=$this->name ?>" placeholder="<?=$this->placeholder?>" class="form-control" value="<?=$viewModel->getData()?>">
     <?php if ($viewModel->hasMessages()): ?>
         <p class="help-block"><?=implode('<br/> ', $viewModel->getMessages());?></p>
     <?php endif; ?>
