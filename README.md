@@ -185,52 +185,92 @@ $element = [
 ]
 ```
 
-Radio element require structured variables
+Some element require structured variables
+
+#### Radio
 ```php
 $element = [
-    'options' => [
-        'template' => 't4web-form-renderer/element/radio',
-        'variables' => [
-            'labels' => [
-                1 => 'Option 1',
-                2 => 'Option 2',
-                3 => 'Option 3',
-            ],
-        ]
-    ]
+  'options' => [
+      'template' => 't4web-form-renderer/element/radio',
+      'variables' => [
+          'labels' => [
+              1 => 'Option 1',
+              2 => 'Option 2',
+              3 => 'Option 3',
+          ],
+      ]
+  ]
 ]
 // ...
 $form->setData([
-    'options' => 3,  // for checking option 3
-    // ...
+  'options' => 3,  // for checking option 3
+  // ...
 ]);
 ```
 will be render as
 ```html
 <form method="post" action="/admin/news/create">
-    <div class="box-body">
-        <!-- ... -->
-        <div class="form-group">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="options" value="1">
-                    Option one
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="options" value="2">
-                    Option two
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="options" value="3" checked="">
-                    Option three
-                </label>
-            </div>
-        </div>
-    </div>
-    <!-- ... -->
+  <div class="box-body">
+      <!-- ... -->
+      <div class="form-group">
+          <div class="radio">
+              <label>
+                  <input type="radio" name="options" value="1">
+                  Option one
+              </label>
+          </div>
+          <div class="radio">
+              <label>
+                  <input type="radio" name="options" value="2">
+                  Option two
+              </label>
+          </div>
+          <div class="radio">
+              <label>
+                  <input type="radio" name="options" value="3" checked="">
+                  Option three
+              </label>
+          </div>
+      </div>
+  </div>
+  <!-- ... -->
+</form>
+```
+
+#### Select
+```php
+$element = [
+  'status' => [
+      'template' => 't4web-form-renderer/element/select',
+      'variables' => [
+          'labels' => [
+              1 => 'Active',
+              2 => 'In active',
+              3 => 'Deleted',
+          ],
+      ]
+  ]
+]
+// ...
+$form->setData([
+  'status' => 2,  // for selecting 'In active'
+  // ...
+]);
+```
+will be render as
+```html
+<form method="post" action="/admin/news/create">
+  <div class="box-body">
+      <!-- ... -->
+      <div class="form-group">
+          <label>Select</label>
+          <select name="status" class="form-control">
+              <option value="1">Active</option>
+              <option value="2" selected>In active</option>
+              <option value="3">Deleted</option>
+          </select>
+      </div>
+  </div>
+  <!-- ... -->
 </form>
 ```

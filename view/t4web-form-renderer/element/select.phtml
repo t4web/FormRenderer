@@ -1,0 +1,15 @@
+<?php /** @var T4webFormRenderer\Element $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
+    <label>Select</label>
+    <select name="<?=$this->name ?>" class="form-control">
+        <?php foreach($this->labels as $value=>$label): ?>
+            <option value="<?=$value?>"
+                <?= ($viewModel->getData() == $value) ? ' selected' : ''; ?>><?=$label?></option>
+        <?php endforeach; ?>
+    </select>
+    <?php if ($viewModel->hasMessages()): ?>
+        <p class="help-block"><?=implode('<br/> ', $viewModel->getMessages());?></p>
+    <?php endif; ?>
+</div>
