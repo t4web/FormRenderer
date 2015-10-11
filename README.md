@@ -141,6 +141,7 @@ will be render as
 - `t4web-form-renderer/element/checkbox` for input type=checkbox
 - `t4web-form-renderer/element/date` for input type=date
 - `t4web-form-renderer/element/file` for input type=file
+- `t4web-form-renderer/element/hidden` for input type=hidden
 
 ## Customizing
 
