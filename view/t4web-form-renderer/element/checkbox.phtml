@@ -4,7 +4,7 @@
 <div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
     <div class="checkbox">
         <label>
-            <input type="text" name="<?=$this->name ?>" class="form-control" value="<?=$viewModel->getData()?>">
+            <input type="checkbox" name="<?=$this->name ?>" value="<?=$viewModel->getData()?>">
             <?=$this->label ?>
         </label>
     </div>
