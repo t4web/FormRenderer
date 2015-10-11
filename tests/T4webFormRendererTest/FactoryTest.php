@@ -21,7 +21,6 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->formConfig = [
-            'type' => 'T4webFormRenderer\Element\Form',
             'template' => 't4web-form-renderer/element/form',
             'children' => [
                 'name' => [

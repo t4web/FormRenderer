@@ -1,0 +1,14 @@
+<?php /** @var T4webFormRenderer\Element $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
+    <div class="checkbox">
+        <label class="control-label">
+            <input type="text" name="<?=$this->name ?>" class="form-control" value="<?=$viewModel->getData()?>">
+            <?=$this->label ?>
+        </label>
+    </div>
+    <?php if ($viewModel->hasMessages()): ?>
+        <p class="help-block"><?=implode('<br/> ', $viewModel->getMessages());?></p>
+    <?php endif; ?>
+</div>
