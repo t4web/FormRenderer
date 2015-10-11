@@ -331,4 +331,46 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
             preg_replace('/\s+/', ' ', $rawHtml)
         );
     }
+
+    public function testFromRenderWithHidden()
+    {
+        $formConfig = [
+            'template' => 't4web-form-renderer/element/form',
+            'children' => [
+                'id' => [
+                    'template' => 't4web-form-renderer/element/hidden',
+                ],
+            ],
+            'variables' => [
+                'action' => '/admin/news/create',
+                'cancelLink' => '/admin/list'
+            ],
+        ];
+
+        $factory = new Factory();
+        $form = $factory->create($formConfig);
+
+        $form->setData([
+            'id' => 123
+        ]);
+
+        $rawHtml = $this->renderer->render($form);
+
+        $this->assertEquals(
+            preg_replace(
+                '/\s+/',
+                ' ',
+                '<form method="post" action="/admin/news/create">
+                    <div class="box-body">
+                        <input type="hidden" name="id" class="form-control" value="123">
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
+                        <a class="btn btn-default" href="/admin/list">Cancel</a>
+                    </div>
+                </form>'
+            ),
+            preg_replace('/\s+/', ' ', $rawHtml)
+        );
+    }
 }

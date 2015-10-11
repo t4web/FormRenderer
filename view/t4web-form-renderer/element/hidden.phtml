@@ -1,1 +1,4 @@
-<input type="hidden" name="<?=$this->name ?>" class="form-control">
+<?php /** @var T4webFormRenderer\Element $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<input type="hidden" name="<?=$this->name ?>" class="form-control" value="<?=$viewModel->getData()?>">
