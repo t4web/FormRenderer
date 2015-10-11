@@ -1,0 +1,10 @@
+<?php /** @var T4webFormRenderer\Element $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
+    <label class="control-label"><?=$this->label ?></label>
+    <input type="file" name="<?=$this->name ?>" class="form-control">
+    <?php if ($viewModel->hasMessages()): ?>
+        <p class="help-block"><?=implode('<br/> ', $viewModel->getMessages());?></p>
+    <?php endif; ?>
+</div>
