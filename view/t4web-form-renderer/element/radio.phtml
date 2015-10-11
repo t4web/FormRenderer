@@ -2,16 +2,16 @@
 <?php $viewModel = $this->viewModel()->getCurrent(); ?>
 
 <div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
-    <div class="radio">
-        <?php foreach($this->labels as $value=>$label): ?>
+    <?php foreach($this->labels as $value=>$label): ?>
+        <div class="radio">
             <label>
-                <input type="radio" name="<?=$this->name ?>" class="form-control"
-                       value="<?=$value?>"
+                <input type="radio" name="<?=$this->name ?>" value="<?=$value?>"
                        <?= ($viewModel->getData() == $value) ? ' checked=""' : ''; ?>>
                 <?=$label?>
             </label>
-        <?php endforeach; ?>
-    </div>
+        </div>
+    <?php endforeach; ?>
+
     <?php if ($viewModel->hasMessages()): ?>
         <p class="help-block"><?=implode('<br/> ', $viewModel->getMessages());?></p>
     <?php endif; ?>
