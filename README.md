@@ -144,6 +144,7 @@ will be render as
 - `t4web-form-renderer/element/file` for input type=file
 - `t4web-form-renderer/element/hidden` for input type=hidden
 - `t4web-form-renderer/element/number` for input type=number
+- `t4web-form-renderer/element/password` for input type=password
 
 ## Customizing
 
