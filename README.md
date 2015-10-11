@@ -139,6 +139,7 @@ will be render as
 - `t4web-form-renderer/element/form` for form rendering
 - `t4web-form-renderer/element/text` for input type=text
 - `t4web-form-renderer/element/checkbox` for input type=checkbox
+- `t4web-form-renderer/element/date` for input type=date
 
 ## Customizing
 
