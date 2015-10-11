@@ -143,6 +143,7 @@ will be render as
 - `t4web-form-renderer/element/month` for input type=month
 - `t4web-form-renderer/element/file` for input type=file
 - `t4web-form-renderer/element/hidden` for input type=hidden
+- `t4web-form-renderer/element/number` for input type=number
 
 ## Customizing
 
