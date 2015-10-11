@@ -152,6 +152,8 @@ $stack = new Resolver\TemplatePathStack(array(
 $renderer->setResolver($stack);
 ```
 
+!["Form Presentation"] (http://t4web.com.ua/var/form-renderer.png "Form Presentation")
+
 ## Element configuring
 
 Each element must contain template
