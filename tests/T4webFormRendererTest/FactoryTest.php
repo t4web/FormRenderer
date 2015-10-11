@@ -67,8 +67,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
                     <div class="box-body">
                         <div class="form-group">
                             <label class="control-label">Name</label>
-                            <input type="text" name="name" placeholder="Enter name" class="form-control"
-                            value="">
+                            <input type="text" name="name" placeholder="Enter name" class="form-control" value="">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Link</label>
