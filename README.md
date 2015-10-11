@@ -145,6 +145,7 @@ will be render as
 - `t4web-form-renderer/element/hidden` for input type=hidden
 - `t4web-form-renderer/element/number` for input type=number
 - `t4web-form-renderer/element/password` for input type=password
+- `t4web-form-renderer/element/radio` for input type=radio
 
 ## Customizing
 
@@ -182,4 +183,54 @@ $element = [
         'children' => []
     ]
 ]
+```
+
+Radio element require structured variables
+```php
+$element = [
+    'options' => [
+        'template' => 't4web-form-renderer/element/radio',
+        'variables' => [
+            'labels' => [
+                1 => 'Option 1',
+                2 => 'Option 2',
+                3 => 'Option 3',
+            ],
+        ]
+    ]
+]
+// ...
+$form->setData([
+    'options' => 3,  // for checking option 3
+    // ...
+]);
+```
+will be render as
+```html
+<form method="post" action="/admin/news/create">
+    <div class="box-body">
+        <!-- ... -->
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="options" value="1">
+                    Option one
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="options" value="2">
+                    Option two
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="options" value="3" checked="">
+                    Option three
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- ... -->
+</form>
 ```

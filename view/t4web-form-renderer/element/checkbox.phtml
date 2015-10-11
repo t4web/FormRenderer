@@ -3,7 +3,7 @@
 
 <div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
     <div class="checkbox">
-        <label class="control-label">
+        <label>
             <input type="text" name="<?=$this->name ?>" class="form-control" value="<?=$viewModel->getData()?>">
             <?=$this->label ?>
         </label>
