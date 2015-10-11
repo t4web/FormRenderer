@@ -1,0 +1,10 @@
+<?php /** @var T4webFormRenderer\Element $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<div class="form-group<?= ($viewModel->hasMessages()) ? ' has-error' : ''; ?>">
+    <label><?=$this->label ?></label>
+    <textarea name="<?=$this->name ?>" rows="3" placeholder="<?=$this->placeholder?>" class="form-control"><?=$viewModel->getData()?></textarea>
+    <?php if ($viewModel->hasMessages()): ?>
+        <p class="help-block"><?=implode('<br/> ', $viewModel->getMessages());?></p>
+    <?php endif; ?>
+</div>

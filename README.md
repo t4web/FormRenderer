@@ -146,6 +146,8 @@ will be render as
 - `t4web-form-renderer/element/number` for input type=number
 - `t4web-form-renderer/element/password` for input type=password
 - `t4web-form-renderer/element/radio` for input type=radio
+- `t4web-form-renderer/element/select` for select
+- `t4web-form-renderer/element/textarea` for textarea
 
 ## Customizing
 
