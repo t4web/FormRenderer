@@ -61,6 +61,15 @@ will be render as
 </form>
 ```
 
+For use in Zend\Application add in your module.config.php
+```php
+    'view_manager' => [
+        'template_path_stack' => [
+            dirname(dirname(dirname(__DIR__))) . '/t4web/form-renderer/view',
+        ],
+    ]
+```
+
 ## Form with data
 For adding values
 ```php
