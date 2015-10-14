@@ -1,4 +1,4 @@
-<form method="post" action="<?=$this->action ?>">
+<form method="post" action="<?=$this->action ?>"<?= ($this->inputFileExists) ? ' enctype="multipart/form-data"' : ''; ?>>
     <div class="box-body">
         <?php foreach($this->children as $element): ?>
             <?=$this->render($element)?>

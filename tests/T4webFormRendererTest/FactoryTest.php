@@ -167,4 +167,43 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
             preg_replace('/\s+/', ' ', $rawHtml)
         );
     }
+
+    public function testFromRenderWithEnctype()
+    {
+        $this->formConfig['variables']['inputFileExists'] = true;
+
+        $factory = new Factory();
+        $form = $factory->create($this->formConfig);
+
+        $form->setData([
+            'name' => 'Sample name',
+            'link' => '/bar/baz'
+        ]);
+
+        $rawHtml = $this->renderer->render($form);
+
+        $this->assertEquals(
+            preg_replace(
+                '/\s+/',
+                ' ',
+                '<form method="post" action="/admin/news/create" enctype="multipart/form-data">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <input type="text" name="name" placeholder="Enter name" class="form-control" value="Sample name">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Link</label>
+                            <input type="text" name="link" placeholder="Enter link" class="form-control" value="/bar/baz">
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
+                        <a class="btn btn-default" href="/admin/list">Cancel</a>
+                    </div>
+                </form>'
+            ),
+            preg_replace('/\s+/', ' ', $rawHtml)
+        );
+    }
 }

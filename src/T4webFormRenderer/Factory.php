@@ -10,7 +10,7 @@ class Factory {
      *
      * @return Element
      */
-    public function create(array $config)
+    public function create(array $config, $name='')
     {
         if (!isset($config['type'])) {
             $config['type'] = 'T4webFormRenderer\Element';
@@ -29,6 +29,7 @@ class Factory {
             $config['variables'] = [];
         }
 
+        $template = null;
         if (isset($config['template'])) {
             $template = $config['template'];
         }
@@ -36,11 +37,18 @@ class Factory {
         /** @var Element $element */
         $element = new $elementClass($config['variables'], [], $template);
 
+        if ($element->getTemplate() == '') {
+            throw new Exception\InvalidArgumentException(sprintf(
+                'Element "%s" must be configured with template',
+                $name
+            ));
+        }
+
         $children = [];
         if (isset($config['children'])) {
             foreach ($config['children'] as $name=>$childConfig) {
                 /** @var Element $child */
-                $child = $this->create($childConfig);
+                $child = $this->create($childConfig, $name);
                 $child->setVariable('name', $name);
                 $children[$name] = $child;
             }
